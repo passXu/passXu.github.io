@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<html>
-<title>darkflamemaster</>
-<body>
-
-<img src="rikka/img/rikka_6229_3369_1.jpg" />
-
-</body>
-</html>
