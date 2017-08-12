@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "win7下jekyll搭建过程!"
+date:   2017-08-12 15:38:57 +0800
+categories: jekyll update
+---
+# win7下jekyll搭建过程
+
+## 需要环境
+
+1. Ruby
+1. Jekyll
+1. python(这个应该是可选的)
+
+## 安装Ruby
+
+1. [下载](https://rubyinstaller.org/downloads/ "点击进入页面")Ruby安装包
+1. 安装Ruby
+1. 由于Jekyll的一些依赖需要支持（例如 yajl-ruby），还需要安装一个 `Ruby DevKit`，Ruby 的开发工具包，在上面的链接下载
+1. 下载好`Ruby DevKit后，建一个目录解压(这是个压缩包)
+1. 进入解压目录运行命令 `ruby dk.rb init`,若它不能自动获取 Ruby 目录时，需编辑其目录下的 config.yml 文件手动照葫芦画飘在后面加上`- C:/xwj/Ruby24-x64`(本人没遇到)
+1. 最后安装`DevKit`运行命令`ruby dk.rb install`
+
+## 安装jekyll
+
+1. cmd中输入`gem install jekyll`（gem是ruby一个工具）
+
+## GitHub Pages Ruby Gem
+
+1. github提供github-pages 这个 gem(这是个gem？)，方便我们本地搭建和 GitHub Pages 线上相同的 Jekyll 环境，包括 Jekyll、少部分插件、Markdown 渲染引擎等等。
+1. 安装gem,`gem install github-pages`
+
+## 语法高亮
+
+1. 若你的博客托管在 GitHub，又想使用语法高亮（pygments），那么你需要安装 Python。到 Python Releases for Windows 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。(我是很久前安装的python3，并且没有配置环境变量，不过运行`PATH=PATH;C:\xwj\target\python`后也可以随意使用python)
+1. 安装pyments运行命令`pip install pygments`
+1. 安装对应gem`gem install pygments.rb`
+1. 在配置中启用`highlighter: pygments`
+1. 也可以使用`Rouge`实现高亮,`gem install rouge`
+
+## 安装wdm
+
+1. 运行jekyll后会报提示 `Please add the following to your Gemfile to avoid polling for changes:
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?`
+1. 安装wdm,`gem install wdm`
+1. 但可能遇到安装不上的问题，Google 了一下，据此 [Issus](https://github.com/Maher4Ever/wdm/issues/18)，大概是与 Ruby 版本兼容问题，这个分支 [HaiderRazvi/wdm](https://github.com/HaiderRazvi/wdm) 可以被装上
+
+~~~cmd
+git clone https://github.com/HaiderRazvi/wdm.git
+cd wdm
+gem build wdm.gemspec
+gem install wdm-0.1.0.gem
+~~~
+
+但是我在 `gem install wdm-0.1.0.gem` 这一步出错了，先mark`ERROR:  Error installing wdm-0.1.0.gem:
+        ERROR: Failed to build gem native extension.`
+
+当然，关于 gem，你也可以通过 Bundler 来管理，在 Gemfile 文件中指定，具体可以看看[这篇文章](http://blog.leanote.com/post/551ab4c438f41114e80014af)(这个文章已经没有了%>_<%)。
+
+## 遇到的问题
+
+1. `jekyll serve` 提示警告`WARN: Unresolved specs during Gem::Specification.reset:
+      listen (< 3.1, ~> 3.0)`,找到了个[issue](https://github.com/jekyll/jekyll/issues/5675),解决了这个问题
+
+~~~cmd
+# install bundler
+#
+$ gem install bundler
+
+# use bundler to execute jekyll commands
+# Note: requires a Gemfile within project directory
+#
+$ bundle exec jekyll serve
+~~~
+
+## [原文链接](http://blog.fooleap.org/run-jekyll-on-windows.html)
