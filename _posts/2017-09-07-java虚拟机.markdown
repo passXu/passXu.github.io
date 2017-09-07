@@ -15,4 +15,4 @@ tags:
 
 jvm将其从系统申请的内存空间划分为5个区域，这5个区域的职能以及jvm对这5个区域的管理，即是java主要的内存管理。5个区域如下图
 
-![](rikka/2017/09/java_memory_fivearea.png)
+![](/rikka/2017/09/java_memory_fivearea.png)
