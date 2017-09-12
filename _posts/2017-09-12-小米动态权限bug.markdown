@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "小米定位动态权限bug"
+date:   2017-09-12 10:10 +0800
+categories: mi bug permission
+catalog:    true
+excerpt: 小米定位动态权限bug
+tags:
+    - 小米
+    - 权限
+---
+# 小米动态权限bug
+
+在小米的应用信息页面，授权了定位知乎，进app，checkpermission返回true，但还是无法获得权限，并且提示`无权限之类`。
+
+![](https://github.com/yanzhenjie/AndPermission/issues/31)
+
+![](https://github.com/yanzhenjie/AndPermission/issues/44)

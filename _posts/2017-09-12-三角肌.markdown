@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "三角肌"
+date:   2017-09-12 10:10 +0800
+categories: 三角肌
+catalog:    true
+excerpt: 三角肌
+tags:
+    - 三角肌
+    - 锻炼
+---
+# 三角肌
+
+## 三角肌位置
+
+![](/rikka/fit/sanjiaoji.png)
+
+## 锻炼动作
+
+### 侧平举
+
+1. 再做侧平举时，重点是抬头，眼睛向上看，只要一低头肯定是斜方肌紧张。

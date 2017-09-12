@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "android动态权限"
+date:   2017-09-7 10:10 +0800
+categories: android permission
+catalog:    true
+excerpt: android动态权限
+tags:
+    - android
+    - 权限
+---
+# android动态权限
+
+![](/rikka/2017/09/permiss_1.png)
+
+![](/rikka/2017/09/permiss_2.png)
+
+## 跳转到引用详情
+
+~~~ java
+     Intent localIntent = new Intent();
+        localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= 9) {
+            localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+            localIntent.setData(Uri.fromParts("package", getPackageName(), null));
+        } else if (Build.VERSION.SDK_INT <= 8) {
+            localIntent.setAction(Intent.ACTION_VIEW);
+            localIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
+            localIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
+        }
+        startActivity(localIntent);
+~~~
+
+## `shouldShowRequestPermissionRationale`
+
+如果用户在过去拒绝了权限的请求，此方法将会放回false，()
+
+![](https://developer.android.com/guide/topics/manifest/permission-element.html)
