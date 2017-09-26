@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "代码片段!"
+date:   2017-09-26 15:38:57 +0800
+categories: java
+catalog:    true
+excerp:
+tags:
+    - java
+---
+# 代码片段
+
+~~~ java
+/**
+* low order frist
+* @param num
+* @return Interger[]
+*/
+public static Long[] getNumAllDigit(long num){
+    ArrayList<Long> list = new ArrayList<Long>();
+    while(num>=10){
+        list.add(num - num/10*10);
+        num = num/10;
+    }
+    list.add(num);
+    return list.toArray(new Long[list.size()]);
+}
+~~~

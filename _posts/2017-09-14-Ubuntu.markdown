@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "ubuntu"
+date:   2017-09-7 10:10 +0800
+categories: ubuntu
+catalog:    true
+excerpt: ubuntu
+tags:
+    - ubuntu
+    - linux
+    - unix
+---
+# ubuntu
+
+## 根据老罗的顺序安装jre失败，
+
+## 安装github上安装shadowsock的方法，安装shadowsock后，启动不了shadowsock，并且在/etc/目录下找不到 /shadowsocks/ 文件夹，并且使用 sudo apt-get remove shadowsocks ，提示没有这个package，使用 sudo apt-get install shadowsocks，安装后，/shadowsocks/文件夹出现，
+
+## 启动shadowsocks客户端是 sslocal ， ssserver 是启动服务端。
+
+## [软件源详解](https://woshijpf.github.io/%E5%88%A9%E5%99%A8/2016/10/23/Ubuntu%E8%BD%AF%E4%BB%B6%E6%BA%90%E8%AF%A6%E8%A7%A3.html)
