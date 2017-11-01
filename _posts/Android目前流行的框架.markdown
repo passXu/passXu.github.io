@@ -1,0 +1,25 @@
+# Android 框架
+
+## Rxjava
+
+### 方便了处理异步数据集
+
+[RxJava初探](http://nicholas.ren/2014/05/09/about-rx-java.html)
+
+[给 Android 开发者的 RxJava 详解](https://gank.io/post/560e15be2dca930e00da1083)
+
+[Rxjava 2.0](https://juejin.im/post/582b2c818ac24700618ff8f5)
+
+由于不完整的订阅引起的内存泄漏是Android APP中使用RxJava的最大缺点
+
+[Android APP中的RxJava 2：RxBinding和RxLifecycle](https://code.tutsplus.com/zh-hans/tutorials/rxjava-for-android-apps-introducing-rxbinding-and-rxlifecycle--cms-28565)
+
+## RxBinding
+
+一个给android ui控件的事件处理库。统一的方式实现各种监听，不需要实现不必要的方法。使得ui控件的时间有序的一件一件传过来，执行完一个事件后，下一次事件再自动传送。
+
+## DataBinding
+
+data 与 ui 绑定，listview绑定，recycleviwe 绑定。整体绑定局部绑定
+
+## RxBus
