@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "win7下jekyll搭建过程!"
-date:   2017-08-12 15:38:57 +0800
-categories: jekyll update
+title:  "编译器!"
+date:   2017-11-01 15:38:57 +0800
+categories: compiler gun gcc llvm clang
 catalog:    true
 excerp: 
 tags:
-    - jekyll
-    - 环境搭建
+    - compiler
 ---
 
 # 编译器
