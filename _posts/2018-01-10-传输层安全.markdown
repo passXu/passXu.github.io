@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "传输成安全!"
+title:  "传输层安全!"
 date:   2017-12-22 15:38:57 +0800
 categories:  tls x.509 https ca rsa
 catalog:    true
