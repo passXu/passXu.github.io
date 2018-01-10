@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "疑问!"
+date:   2017-12-22 15:38:57 +0800
+categories:  疑问
+catalog:    true
+excerp: 疑问
+tags:
+    - 疑问
+---
+# 疑问
+
+## IntentService 为啥多次start时，需要stop三次 才会真正ondestroy
+一旦请求使用 stopSelf() 或 stopService() 停止服务，系统就会尽快销毁服务。
+但是，如果服务同时处理多个 onStartCommand() 请求，则您不应在处理完一个启动请求之后停止服务，因为您可能已经收到了新的启动请求（在第一个请求结束时停止服务会终止第二个请求）。为了避免这一问题，您可以使用 stopSelf(int) 确保服务停止请求始终基于最近的启动请求。也就说，在调用 stopSelf(int) 时，传递与停止请求的 ID 对应的启动请求的 ID（传递给 onStartCommand() 的 startId）。然后，如果在您能够调用 stopSelf(int) 之前服务收到了新的启动请求，ID 就不匹配，服务也就不会停止。
+
+## activity 与 appcompatactivity 差别
+
+以及各个support library版本差别
+
+action_mode_bar_stub 与系统状态栏 之间关系，

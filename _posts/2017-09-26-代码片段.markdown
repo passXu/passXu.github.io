@@ -26,3 +26,9 @@ public static Long[] getNumAllDigit(long num){
     return list.toArray(new Long[list.size()]);
 }
 ~~~
+
+## 四舍五入
+
+~~~ java
+int a = (int)(b+0.5f);
+~~~

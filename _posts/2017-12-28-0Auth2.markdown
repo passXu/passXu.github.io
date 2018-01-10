@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "关于Oauth2!"
+date:   2017-12-22 15:38:57 +0800
+categories:  Oauth2
+catalog:    true
+excerp: Oauth2
+tags:
+    - Oauth2
+---
+
+Oauth2
+
+[理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
+
+[关于 OAuth2.0 安全性你应该要知道的一些事](https://www.chrisyue.com/security-issue-about-oauth-2-0-you-should-know.html)
+
+有点奇怪OAuth2的参数是统一的还是不统一的，
+
+Oauth2的各种参数，是为了验证各种中间人攻击，dns污染等网络攻击。

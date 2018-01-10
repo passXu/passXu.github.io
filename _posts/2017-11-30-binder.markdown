@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "binder!"
+date:   2017-11-15 15:38:57 +0800
+categories: android binder
+catalog:    true
+excerp: binder
+tags:
+    - binder
+---
+# binder
+
+## 默认值：如果包含有intent-filter 默认值为true; 没有intent-filter默认值为false。
+
+## SecurityException , binder invotion to an incorrect interface , client 和 server 的 binder不一样，包括包名路径不一样
+
+## aidl不是现场安全的
+
