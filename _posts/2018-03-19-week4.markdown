@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "week4"
+date:   2018-03-12 15:38:57 +0800
+categories:  
+catalog:    true
+excerp: 2018-03-19 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## `Exception in thread "Timer-0" java.lang.AssertionError: No System TLS`
+
+~~~text
+Exception in thread "Timer-0" java.lang.AssertionError: No System TLS
+        at okhttp3.internal.Util.assertionError(Util.java:482)
+        at okhttp3.OkHttpClient.systemDefaultTrustManager(OkHttpClient.java:292)
+        at okhttp3.OkHttpClient.<init>(OkHttpClient.java:252)
+        at okhttp3.OkHttpClient.<init>(OkHttpClient.java:226)
+        at com.busmonitor.AddressMappingManager.initBeanFromCloud(AddressMappingManager.java:51)
+        at com.busmonitor.TimerPush$1.run(TimerPush.java:20)
+        at java.util.TimerThread.mainLoop(Timer.java:555)
+        at java.util.TimerThread.run(Timer.java:505)
+Caused by: java.security.KeyStoreException: problem accessing trust storejava.io.IOException: Unrecognized keystore entry
+        at sun.security.ssl.TrustManagerFactoryImpl.engineInit(TrustManagerFactoryImpl.java:75)
+        at javax.net.ssl.TrustManagerFactory.init(TrustManagerFactory.java:250)
+        at okhttp3.OkHttpClient.systemDefaultTrustManager(OkHttpClient.java:284)
+~~~
+
+[linux下配置java运行环境](https://www.jianshu.com/p/4ae48d996d66)
+
+上面问题初步排查通过重写okhttp的认证部分可以解决，[okhttp自定义签名认证](https://www.jianshu.com/p/cc7ae2f96b64)，感觉是因为老板的板子里面没有预埋证书的原因，然后okhttp创建`X509TrustManager`的时候失败，报错
+
+## 看了java里的thread与jmm （zejian的文章）
+[https://blog.csdn.net/javazejian/article/details/71333103](enum)
+
+## java class （zejian的文章）

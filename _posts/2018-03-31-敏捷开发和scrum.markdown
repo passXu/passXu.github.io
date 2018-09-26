@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "敏捷开发与scrum"
+date:   2018-03-31 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 敏捷开发与scrum
+tags:
+    -scrum
+    -敏捷开发
+---
+# Scrum
+
+## 瀑布模型
+
+## 应对快速变化的需求

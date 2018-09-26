@@ -19,3 +19,7 @@ tags:
 以及各个support library版本差别
 
 action_mode_bar_stub 与系统状态栏 之间关系，
+
+## java synchronized
+
+synchronized 用在修饰普通方法前，持有的锁是哪个，修饰static方法前，持有的锁是哪个。类名.class 这个代表的是哪个锁

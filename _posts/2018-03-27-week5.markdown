@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "week5"
+date:   2018-03-12 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 2018-03-27 ~ 2018-
+tags:
+    -week
+---
+# week
+
+`这将是疯狂加班的一周`，并没有
+
+## 了解学习ssl socket
+
+## Arraylist可以直接System.out.print打印比如
+
+System.out.println(list);
+打印结果：[1, 2]
+
+## Class.getResourceAsStream ,放弃这个鬼东西的用法了，get到的inputstream总是null
+
+## [keytool](https://docs.oracle.com/cd/E19900-01/820-0847/ablrb/index.html)
+
+## equals 规则
+
+1. 非空object X。必须满足 `X.equals(X)==true`
+2. 非空Object x和y ，如果 `X.equals(Y) == true`,那么`Y.equals(X)==true`也必须成立
+3. 非空对象X,Y,Z 如果`X.equals(Y)==true` `Y.equals(Z)==true` 那么`X.equals(Z)==true`
+4. equal的值是恒定的，如果返回true，则一直放回true
+5. 非空X，X.equals(null) 返回false
+6. 一般如果override equals 也要同时equals hashcode
+
+## hashcode 规则
+
+1. 一次执行中，hashcode 的返回值必须是定值
+2. 如果两个equals为true，那么hashcode必须放回相同数值
+3. 两个不equals的对象，不必须要求hashcode 不一样，但是应该尽量保证hashcode不一样
+4. 尽可能的保证两个不同对象的hashcode放回不一样的值，（hashcode的一个金典实现是返回两个对象地址，java俩面不强制这个实现）
+
+## ArrayMap android特有的，研究下源码
+
+1. 网上说在需要存贮对象在1000一下的时候可以用arraymap，占用空间更少，
+2. 但是又看了下其他分析，SparseArray arraymap 相对于hashmap并没有什么优势。还是就用hashmap好了
+
+##　code review
+
+1. 数组传递是引用传递
+2. 上报效率低
+3. 同步锁读写分开

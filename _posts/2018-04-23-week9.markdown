@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "week7"
+date:   2018-04-02 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 2018-04-08 ~ 2018-
+tags:
+    -week
+---
+# week
+
+
+--
+1. 485对接，测试文档，交付
+2. prd文件，然后一起讨论app接口
+3. 卢工测试逻辑
+4. 日志整理（在不连串口的情况下，怎么查找问题所在）
+5. 天猫精灵
+
+today todo
+1. fragment 视图加载机制 ， inflate机制
+
+## [很棒的一个文章教我们使用github](http://stormzhang.com/github/2016/07/28/learn-github-from-zero7/)
+
+1. 里面关于如何发现新内容的方式有一个很棒，就是关注一些大牛，看大牛们最近在关注什么、、
+
+## [发现一个有现成小util代码的网站](http://www.java2s.com/Tutorial/Java/0040__Data-Type/hexStringToByteArray.html)
+
+## LinearLayout weight 计算方法
+
+android:layout_weight的真实含义是:如果View设置了该属性并且有效，那么该 View的宽度等于原有宽度(android:layout_width)加上剩余空间的占比。
+
+## 问题
+
+fragment中的的adapter需要的context应该用activity还是别的啥
+
+## listview 点击事件设置原理，在list中设置点击事件好像不能直接用databinding，因为view的事件一般都依赖list中对于item的数据
+
+[ViewDataBinding](https://juejin.im/post/58400839ac502e006cbd0f31)
+
+## [RecycleView 长按拖动特效，吊咋天](https://blog.csdn.net/yanzhenjie1003/article/details/51935982)
+
+不过首页出现了长按拖拽滑动bug。   
+
+## 重逻辑 轻逻辑 ？  
+
+## 新版appfragment实现好搓啊
+
+## databinding 中没有任何值，只是空的data等标签也可以使用
+
+## 为什么AutoLayout fragment中无效
+
+## 还有为什么app mudole中无法引入autolayoutlib中的layoout
+
+
+
+~~~
+        MyItemDecoration myItemDecoration = new MyItemDecoration(30);
+        familyMembers.addItemDecoration(myItemDecoration);
+        familyMembers.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        familyMembers.setAdapter(adapter);
+        DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
+        defaultItemAnimator.setAddDuration(1000);
+        defaultItemAnimator.setRemoveDuration(1000);
+        familyMembers.setItemAnimator(defaultItemAnimator);
+~~~
+
+https://www.jianshu.com/p/78de93f71965
+
+Fragment与BackStack运作流程？ - SamuraiSong的回答 - 知乎
+https://www.zhihu.com/question/35956473/answer/65224569
+
+## fragment 如果没有初始化要 getactivity 可能会为null,估计是在fragment attchtoactivity这个生命周期执行前，getActivity都为null 
+
+fitsSystemWindows:影响的就是使用这个属性的paddingtop和buttom属性
+
+https://blog.csdn.net/EthanCo/article/details/54571710 databinding 字符串拼接

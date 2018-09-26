@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "week6"
+date:   2018-04-02 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 2018-03-27 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## linkedlist.pop ，如果list是空的话，会抛出NoSuchElementException
+
+## http 连接复用（okhttp中的连接复用），[这里](https://blog.csdn.net/tangjiean/article/details/51729371)
+
+对okhttp的连接池没有深入了，了解了个大概，关键是复用tcp连接在timeout时间内处理多个请求。

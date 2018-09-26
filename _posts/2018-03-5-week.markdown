@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "week2"
+date:   2018-03-5 15:38:57 +0800
+categories:  
+catalog:    true
+excerp: 2018-03-5 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## 发现eib system的`Fast Polling Mode`
+
+## Flutter 好东西
+
+## T_Data_Broadcast
+
+## [时间复杂度](https://zh.wikipedia.org/wiki/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6)
+
+时间复杂度表示算法运行时间的函数，`O(X)`，这个函数的输入是输入字符串的长度，函数内容不包含低次项和首项系数，如果一个算法对于任何大小为 n （必须比 n0 大）的输入，它至多需要 5n3 + 3n 的时间运行完毕，那么它的渐近时间复杂度是 O(n3)。
+
+为了计算时间复杂度，需要估计计算单元，每个单元运算的运算时间都是相同的。因此，总运行时间和算法的操作单元数量最多相差一个常量系数。
+
+常数时间，对数时间(二分算法，二叉树都是对数时间复杂度)，线性时间，线性对数，等（剩下的什么多项式时间，幂对数时间有空再看）
+
+## win cmd退出telnet
+
+`ctrl+]`进入telnet命令行，输入`quit`退出
+
+## A^A=0
+
+## 为什么knx传输层的networkinfo都是110
+
+## palindromenumber 的 solution 真的是有点666的，感觉这种写法我是写不出来的，so 简洁。

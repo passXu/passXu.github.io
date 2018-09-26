@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "week3"
+date:   2018-03-12 15:38:57 +0800
+categories:  
+catalog:    true
+excerp: 2018-03-12 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## frist note [java内部类设计的好处](https://www.zhihu.com/question/21373020)
+
+1. 完善多重继承，外面的类继承一个类，然后内部类再继承一个类，这样就相当于多重继承了。6
+2. 搭桥 ，容器里的迭代有用到内部类
+3. 高内聚，把只和这个类相关的类型放到这个类内部是很合理的
+
+java 没有闭包，没有委托
+
+## 设计是做减法，能不用模式就不用模式，能不用内部类就不用内部类。
+
+## 冒泡排序的实用性差（因为时间复杂度太高 o(n2)），就是简单
+
+## 快速排序的原理就是选择一个pivot，然后大于这个基点的数都放在基点右边，小于这个数的都放在pivot左边，这样这个基点的坐标就确定了，然后数列左右迭代进行这样的运算，最好当每一个数列的长度都为1的时候，排序结束。这个方法也叫分治法，同时这个算法可能导致额外的空间复杂度，所以有了原地分区（in-place）法。最好最坏运行时间相关概念
+
+## 使用^^^来交换两个数的时候，好像会出现问题，先mark，在做选择排序的时候出现了问题
+
+## transient关键字
+
+## 集合里面关于迭代的部分
+
+## linkedList - list - collection , LinkedList Support poll offer
+
+## push-addFrist pop-removeFrist poll-removeFrits offer-addLast peek
+
+## hashmap absent-如果这个key有value的话，就不替换原来的value
+
+## map的官方描述。基于map接口实现，允许null键和值，非同步，不保证有序（比如插入的顺序），也不保证不随时间变化。[关于map的好文章](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/)
+
+## 红黑树
+
+## 参数string，如果传null，竟然会报错
+
+## [WeakHashMap](http://blog.csdn.net/yangzl2008/article/details/6980709)
+
+## [泛型上下界问题](https://itimetraveler.github.io/2016/12/27/%E3%80%90Java%E3%80%91%E6%B3%9B%E5%9E%8B%E4%B8%AD%20extends%20%E5%92%8C%20super%20%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/)
+
+## [set](http://blog.csdn.net/qq_33642117/article/details/52040345)
+
+TreeSet LinkedHashSet HashSet
+
+## 奇怪HashMap为什么不用数组+二分查找 代替红黑树 ，看了两天二叉树，现在有点怀疑二叉树对我的实用性
+
+## [super 和 extend 与泛型] (https://itimetraveler.github.io/2016/12/27/%E3%80%90Java%E3%80%91%E6%B3%9B%E5%9E%8B%E4%B8%AD%20extends%20%E5%92%8C%20super%20%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/)
+
+PECS
+
+## [枚举类](http://blog.csdn.net/javazejian/article/details/71333103),这文章写的太6了
+
+枚举类相对于定义final int常量这样方式的好处有。
+
+1. 不会被碰撞，比如int定义为1，那么这个常量就会被1碰撞
+1. 枚举类好像不能直接定义枚举值为1,2，这种整形。

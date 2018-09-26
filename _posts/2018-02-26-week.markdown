@@ -1,0 +1,104 @@
+---
+layout: post
+title:  "week1"
+date:   2018-02-26 15:38:57 +0800
+categories:  
+catalog:    true
+excerp: 2018-02-26 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## gson
+
+~~~ text
+private int a ;
+private String b;
+用Gson怎么序列化json为
+{
+  "b":"xxxx"
+}
+或者
+{
+  "a":null, //gson不能得到这种格式，没有null这种类型(unchecked)
+  "b":"xxxx"
+}
+~~~
+
+int -> integer
+
+## i/o
+
+### draft
+
+1. 控制台io，网络io，文件系统io
+2. 不同的方式与它们通信（ 顺序、随机访问、二进制、字符、按行、按字等等）
+3. 我们关注的就是如何提高它的运行效率了，而数据格式和传输方式是影响效率最关键的因素了
+
+[](https://www.ibm.com/developerworks/cn/java/j-lo-javaio/)
+
+### 粘包，拆包（据说这两个词没有英语翻译？意味着英语国家的程序员没有这个概念）
+
+1、要发送的数据大于TCP发送缓冲区剩余空间大小，将会发生拆包。
+2、待发送数据大于MSS（最大报文长度），TCP在传输前将进行拆包。
+3、要发送的数据小于TCP发送缓冲区的大小，TCP将多次写入缓冲区的数据一次发送出去，将会发生粘包。
+4、接收数据端的应用层没有及时读取接收缓冲区中的数据，将发生粘包。
+
+通过以上分析，我们清楚了粘包或拆包发生的原因，那么如何解决这个问题呢？解决问题的关键在于如何给每个数据包添加边界信息，常用的方法有如下几个：
+1、发送端给每个数据包添加包首部，首部中应该至少包含数据包的长度，这样接收端在接收到数据后，通过读取包首部的长度字段，便知道每一个数据包的实际长度了。
+2、发送端将每个数据包封装为固定长度（不够的可以通过补0填充），这样接收端每次从接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。
+3、可以在数据包之间设置边界，如添加特殊符号，这样，接收端通过这个边界就可以将不同的数据包拆分开。
+等等。
+
+俺的处理粘包方法：
+
+1. 首位边界
+1. 数据长度
+1. 校验位
+
+[](https://blog.insanecoder.top/tcp-packet-splice-and-split-issue/)
+[](https://my.oschina.net/andylucc/blog/625315)
+
+### utc 时区 时间戳问题
+
+1. utc： 协调世界时（英语：Coordinated Universal Time，法语：Temps Universel Coordonné，简称UTC）是最主要的世界时间标准。
+1. java时间戳只计算毫秒数，无视时区
+1. cal.getTimeInMillis() 有调用 System.currentTimeMillis()么？
+
+### 整形数普通10进制与科学计数法
+
+{"id":99999999999999999999}
+整数长度超过容量之后，会用科学计数法，double有科学计数法表示方式(long等不知道有没有)，然后科学记数法表示的数可以转化为10进制string。
+
+### java中没有无符号数
+
+java虽然没有无符号数，但是只有在把这个存储的字节当做`数`来处理的时候，才会加上符号解释，当没有当做`数`来处理的时候，不用关心这个问题
+
+### android主线程 loop循环
+
+在钢丝球群聊里面看到关于 loop循环，他们提到loop不是无脑无限循环，只有消息到来的时候会被唤醒循环，（unchecked）
+
+### stringbuffer 代替 string 在字符串拼接的时候
+
+### LruCache
+
+android api12提供的一个缓存对象，使用`最近最少算法`
+
+缓存可以理解为容器，所以一般都有set get，
+
+常用缓存算法FIFO LRU LFU (好像也叫页面置换算法)
+
+LRU 与 LFU 的差别，（一个是最近最少使用，一个是最不常用）
+
+### 杂
+
+一门语言要关注，语言本身（api），语言运行机制，内存管理，以及代码效率，代码习惯
+
+### 书
+
+[](https://droidyue.com/blog/2014/11/30/java-programmer-must-read-these-9-books/)mark
+
+### staruml
+
+因为要画NetworkControlServer的架构图，用到staruml，原来电脑上也是装了staruml的，不过感觉有学习成本懒得看staruml了

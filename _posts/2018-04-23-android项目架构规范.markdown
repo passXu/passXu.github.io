@@ -1,0 +1,41 @@
+# android项目架构规范
+
+1. model 和 view 分离
+1. 在android中怎么分包
+
+## android studio插件
+
+1、 感觉android layout实在是太乱了，网上搜一有没有layout管理的好办法，果然有人同样觉得google的layout管理太乱，做了个插件帮助分类管理layout[folding-plugin](https://github.com/dmytrodanylyk/folding-plugin),那么同样的，drawable等应该也有管理软件。
+
+##　[tool context in layout 的作用，](https://stackoverflow.com/questions/11078487/whats-toolscontext-in-android-layout-files)
+
+## [Plugin with id 'com.github.dcendents.android-maven-plugin' not found ](https://github.com/forcedotcom/SalesforceMobileSDK-Android/issues/1402)
+
+## android studio3.0后，gradle中依赖的关键字还变了，有空研究一下 API implement compie
+
+## [All com.android.support libraries must use the exact same version specification
+](https://stackoverflow.com/questions/42374151/all-com-android-support-libraries-must-use-the-exact-same-version-specification/44164035)
+
+还是要仔细一点，出现hint的时候第一时间去看，
+
+### user model
+
+1. 获取个人信息
+2. 修改个人信息
+
+### gateway（家庭）
+
+1. 获取家庭列表
+2. 修改家庭
+3. 家庭成员管理
+
+### 目前需要的工作glide图片本地缓存和加载
+### sqlite框架决定使用greenDao， 数据库加密，java实体直接存储，速度快
+#### 需要保存的本地的东西有
+        1. 用户基本信息
+        2. 网关基本信息
+        3. 工程文件
+        4. 天气就算了（X）
+            但是这些信息的本地存储需要依赖一个服务器的一个对比机制，判断这些信息是否改变，所以数据的本地持久化优先级不高，然后还缺少一个信息及时更新机制（）
+            所以实现基本流程（细节再议）
+

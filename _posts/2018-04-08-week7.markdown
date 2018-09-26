@@ -1,0 +1,79 @@
+---
+layout: post
+title:  "week7"
+date:   2018-04-02 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 2018-04-08 ~ 2018-
+tags:
+    -week
+---
+# week
+
+## 接口里面定义了的public变量，子类继承后，在子类中这个变量会自动变成final的？
+
+现在才发现在接口中定义的变量都会默认被认为是常量，应该是ide自动给变量补全了`public final`这两个关键字
+
+接口中声明的方法或常量必须是public的，并且常量必须是final的（都是常量了所以是final的）
+
+## [map迭代](https://github.com/giantray/stackoverflow-java-top-qa/blob/master/contents/iterate-through-a-hashmap.md)
+
+## [map线程安全](https://yemengying.com/2016/05/07/threadsafe-hashmap/)
+
+## CopyOnWriteArrayList
+
+## [ConcurrentLinkedQueue线程安全队列实现方式](https://blog.csdn.net/itachi85/article/details/52205256)
+
+1. 使用同步锁（block）
+
+2. 使用循环cas（ non block ）（这是个什么玩意）
+
+3. 这个实现原理感觉很复杂的样子，cas还是平台相关的操作
+
+4. ConcurrentLinkedQueue的.size() 是要遍历一遍集合的，很慢的，所以尽量要避免用size，
+如果判断队列是否为空最好用isEmpty()而不是用size来判断.
+
+5. peek (得到第一个元素，并不删除该元素)与 poll（得到并删除第一个元素）
+
+## 才发现synchronized不能作用到变量上
+
+## Float.parseFloat() 等方法如果传入的String是""的话，会throw  NumberFormatException
+
+## slf4j log4j logback
+
+[logback入门配置简洁](https://my.oschina.net/looly/blog/298675)
+
+[logback用法](https://www.jianshu.com/p/d1a565f192b9)
+
+[logback设置配置目录](https://stackoverflow.com/questions/21885787/setting-logback-xml-path-programmatically),设置config path得在load之前，这个思路很棒
+
+### [不同日打印到不同目录](https://blog.csdn.net/mggwct/article/details/77718122)
+
+1. [logback filter用法介绍](http://aub.iteye.com/blog/1110008)
+2. [关于rollingPolicy](https://blog.csdn.net/jiaincs/article/details/5686287) rollingPolicy真是个神奇的东西
+
+### 对于各个等级日志的理解
+
+1. debug : 开发或者排查问题时，用来追踪程序整个流程的日志。
+2. info ： 给系统管理员或者用户查看的日志，展示系统当前状态或者反馈用户的消息等信息。
+3. WARN : catch的exception
+4. ERROR ： CARSH信息
+
+## sentry
+
+一个日志管理平台，跟gitlab一样，可以让用户搭建自己的平台。
+
+### [sentry+logback](https://docs.sentry.io/clients/java/modules/logback/)
+
+1. `sentry-logback`已经依赖了logback,不用再次依赖logback
+2. 配置logback本身的`logback.xml`，其中sentry是作为logback的一个`appender`存在
+3. 配置`sentry.properties`，目前`sentry.properties`还不支持指定path，只能放到同一个文件夹中
+
+### [sentry配置](https://docs.sentry.io/clients/java/config/#implementation)
+
+1. stacktrace.hidecommon 好像没什么用
+2. `uncaught.handler.enabled`是否自动上报未catch异常，以`fatal`等级上报,为true时上报，注意，如果这个异常导致程序退出虚拟机关闭了，则不能保证上报成功。官网推荐这个配置和磁盘缓存一起用。
+3. `Async Connection`跟sentru服务器异步连接相关
+4. `Buffering Events to Disk`
+5. `In Application Stack Frames`没懂
+6. 其他除了dsn，都是tag类配置

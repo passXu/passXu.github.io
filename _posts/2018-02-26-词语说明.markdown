@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "词语说明"
+date:   2018-02-26 15:38:57 +0800
+categories:
+catalog:    true
+excerp:
+tags：
+---
+# 词语说明
+
+unchecked ： 未确认的，猜测的东西
