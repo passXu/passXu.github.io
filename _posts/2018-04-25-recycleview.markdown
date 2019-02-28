@@ -35,13 +35,13 @@ tags:
 1. binding方式多种多样，在一个activity中，后binding的会使先binding的无效
 1. binding的方式太多，这里还有点云里雾里
 
-## recycleview 
+## recycleview
 
 [这篇文章写的很到位，多读几遍](https://www.kymjs.com/code/2016/07/10/01/)
 
 ### recycleview 关键点
 
-1. manager 
+1. manager
 2. itemanimation
 3. adapter
 4. itemdecoration
@@ -50,3 +50,5 @@ tags:
 
 ### recyclerview 与databinding混合使用，主要是在adapter的中将model与viewbinding
 
+
+## [recycleview itemanimotion not work](https://stackoverflow.com/questions/31555222/animation-recyclerview-is-not-**working**)

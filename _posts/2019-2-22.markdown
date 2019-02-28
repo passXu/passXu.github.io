@@ -1,0 +1,141 @@
+---
+layout: post
+title:  "构建 编译 jni "
+date:   2018-04-02 15:38:57 +0800
+categories: 
+catalog:    true
+excerp: 2018-03-27 ~ 2018-
+tags:
+    -构建编译
+---
+
+# 构建 编译 jni
+
+为了学习android ndk开发，学习了c语言语法，但是准备开发app基于c socket的时候，还是感觉有很多知识不了解，比如`cmake` 等等东西，
+一个一个来了解，先从cmake开始
+
+## cmake 等工具
+
+cmake只一个跨平台构建工具（应该描述为`编译管理`工具才合适），然后这个东西好像是make的升级版，make用起来比较复杂？
+make是用来编译程序的，而且好像是编译c程序的，那么这个make和G++等有什么关系呢，
+
+~~~txt
+gcc是编译器,而make不是 make是依赖于Makefile来编译多个源文件的工具,在Makefile里同样是用gcc(或者别的编译器)来编译程序.
+gcc是编译一个文件，make是编译多个源文件的工程文件的工具。
+make是一个命令工具，是一个解释makefile中指令的命令工具。
+make就是一个gcc/g++的调度器，通过读入一个文件（默认文件名为Makefile或者makefile），执行一组以gcc/g++为主的shell命令序列。输入文件主要用来记录文件之间的依赖关系和命令执行顺序。
+gcc是编译工具；
+make是定义了一系列的规则来指定，哪些文件需要先编译，哪些文件需要后编译；
+也就是说make是调用gcc的。
+要是好好分析过一个makefile文件就不会这么问了。
+~~~
+
+这是网上找的关于make和g++等编译器之间关系的描述，看起来就是一个当工程太大了之后，用来帮助管理编译的工具。
+
+感觉g++到G++ make 到g++ make cmake  的演化过程，就是程序员们解决编译复杂度的一个过程。层层封装，从手动g++到 make调用g++加快编译速度，到cmake 调用 make 更加的简化了操作流程，
+
+~~~txt
+作者：辉常哥
+链接：https://www.zhihu.com/question/36609459/answer/89743845
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+1.gcc是GNU Compiler Collection（就是GNU编译器套件），也可以简单认为是编译器，它可以编译很多种编程语言（括C、C++、Objective-C、Fortran、Java等等）。2.当你的程序只有一个源文件时，直接就可以用gcc命令编译它。3.但是当你的程序包含很多个源文件时，用gcc命令逐个去编译时，你就很容易混乱而且工作量大4.所以出现了make工具make工具可以看成是一个智能的批处理工具，它本身并没有编译和链接的功能，而是用类似于批处理的方式—通过调用makefile文件中用户指定的命令来进行编译和链接的。5.makefile是什么？简单的说就像一首歌的乐谱，make工具就像指挥家，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。6.makefile命令中就包含了调用gcc（也可以是别的编译器）去编译某个源文件的命令。7.makefile在一些简单的工程完全可以人工手下，但是当工程非常大的时候，手写makefile也是非常麻烦的，如果换了个平台makefile又要重新修改。8.这时候就出现了Cmake这个工具，cmake就可以更加简单的生成makefile文件给上面那个make用。当然cmake还有其他功能，就是可以跨平台生成对应平台能用的makefile，你不用再自己去修改了。9.可是cmake根据什么生成makefile呢？它又要根据一个叫CMakeLists.txt文件（学名：组态档）去生成makefile。10.到最后CMakeLists.txt文件谁写啊？亲，是你自己手写的。11.当然如果你用IDE，类似VS这些一般它都能帮你弄好了，你只需要按一下那个三角形
+~~~
+
+上面的话验证了我的猜测，cmake可以写好一次cmakelists.txt之后，可以在多个平台使用。
+
+make 根据makefile中的配置工程，cmake根据cmakelists.txt中的配置工作。
+
+[参考链接](https://blog.csdn.net/libaineu2004/article/details/77119908)
+
+android studio2.2之前使用ndk-build的方式开发jni，2.2之后AS集成了CMAke
+
+## AS下使用ndk开发
+
+在创建项目的时候就添加c++支持，最好把另两个选项也选择上，一种是在原有项目上添加c/c++，
+
+tip
+配置ndk 路径
+app.gradle中配置ndk{}
+还需要手动用`javah`生成头文件么。
+c/c++代码在哪个文件夹为最佳。
+defaultConfig中的ndk配置和externalNativeBuild配置有什么差别
+
+新建一个c++support项目，运行报错`WARNING: ABIs [arm64-v8a,armeabi-v7a,armeabi] set by 'android.injected.build.abi' gradle flag contained 'ARMEABI' not targeted by this project.` [这个连接可以解决?](`https://stackoverflow.com/questions/50286817/warning-abis-armeabi-v7a-armeabi-set-by-android-injected-build-abi-gradle-f`)
+
+又遇到`no number XXX` 的问题，网上没找到解决办法，看起来是cmake和ndk处理编译c时候出的问题，可以cmake和ndk是都AS里面下载的，没办法试试卸载cmake和ndk重新安装下。重新安装之后还是出现了这个错误，想了下，这肯定是个环境错误，是我没有下什么必要的环境么,尝试卸载重新安装sdk已经，升级AS都没用，结果第二天重启电脑自动好了。
+
+AS中 make build clean区别。都是编译，make是只编译修改的部分，build编译全部，都不生成apk的话，好像没差别诶？
+
+生成javah后，用g++手动编译成so遇到问题，
+找不到`jni.h`，解决方法，g++ -I 中指明jdk中include的路径
+找不到`jni_md.h`,解决方法同上。
+使用System.loadlibrary加载不成功。使用System.load加载成功了，第一次运行成jni。
+
+so的生成过程中哪些东西是平台相关的？
+声明native方法。平台无关
+通过上面的java文件，通过java.h得到头文件，这个可能有平台相关性，因为不同平台上不同的javah的工作原理不一样（不对，应该产出的是相同的头文件）
+include头文件，然后实现头文件中的函数
+将头文件中的函数编译`g++ -I -o`为so（c的编译产出程序是平台相关的，所以这一步，一定是平台相关的，）
+
+android.mk 是什么东西，其中可以指定c代码的位置，
+
+application.mk是什么东西，其中可以指明生成的so库，支持的类型
+
+jni类型签名，jni调用java时会用到。
+
+目前jni开发方式有三种，
+1. 用javac javah 手动生成头文件，再根据头文件实现c语言，然后再编译c语言为so。这里是不是一次只能编译一个平台的？多平台的话得多次交叉编译相应的so库。
+2. [对于android 手动使用ndk，不依赖as，配置android.mk(决定编译的源码范围) application.mk（决定生成的so库），](https://juejin.im/post/5a67dcdb518825732c53b338)
+3. cmake方式只能用于AS的新建项目么(亲测都可以用)
+
+Android NDK: NDK Application 'local' targets unknown ABI(s): armeabi mips mips64
+Android NDK: Please fix the APP_ABI definition in ./jni/Application.mk
+
+
+编写Android.mk文件，:=后面不要有空格 
+
+类名不一致导致jni调用失败
+
+com.passxu.myapplication.manualjni.Main2Activity.stringFromJni
+
+Java_com_passxu_myapplication_manualjni_Main2Activity_stringFromJni
+
+*** target pattern contains no '. stop. android ndk
+删除工程目录下obj目录下的.o文件，重新ndk-build(找不到obj目录)，其实是LOCAL_SRC_FILES =: 写成了 :=
+
+### 使用ndk开发
+
+- 声明c语言native接口
+- 使用javah生成头文件(可以将命令配置到AS的extern tool中)
+- 实现native接口
+- 配置编译选项，就是编写Android.mk（指明声明so库的名字，要编译的native文件等等），Application.mk(指明支持的api等级，以及目标平台等等)
+- gradle中添加externalNativeBuild配置
+- 使用ndk编译成apk，或者编译成so
+
+### 使用cmake
+
+- 声明c语音native接口
+- 实现native（如果没有生成头文件的话，编写程序是不是比较麻烦）
+- 编写Cmakefile
+- gradle中配置externalNativeBuild
+- 编译apk
+
+如果想把实现的native原程序，分别打倒不同的so 怎么操作
+
+ERROR: Error occurred while communicating with CMake server. Check log C:\xwj\android\workspace\TestMutiModule\app\.externalNativeBuild\cmake\debug\armeabi-v7a\cmake_server_log.txt for additional information. 把cmake 3.10.x的版本卸载掉就ok了
+
+fd 是(file descriptor)，这种一般是BSD Socket的用法，用在Unix/Linux系统上。在Unix/Linux系统下，一个socket句柄，可以看做是一个文件，在socket上收发数据，相当于对一个文件进行读写，所以一个socket句柄，通常也用表示文件句柄的fd来表示。
+
+c语言的内存分配和回收。
+
+c语言错误日志。
+
+java socket是怎么知道，socket连接不上是什么原因导致的错误呢。
+
+unix`一切都是文件`，所以对于c语言，包括网络(socket，http)读写，端口（232端口，knx端口）读写，全都封装为了对文件描述符的读写。
+
+字节序列。如果是发送char就不没有大端小端一说，多字节数据的存储才有大端小端一说。
+
+menset `将指定内存地址`，`指定长度`的值设置为`指定值`。有什么用呢？

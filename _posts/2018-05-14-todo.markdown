@@ -13,3 +13,116 @@ tags:
 
 
 1. as 3 之后新的依赖方式implementation ， 与compile 的差别。
+2. 为什么依赖不了rxjava 2.1.14
+3. https://www.jianshu.com/u/c50b715ccaeb 不错的rxjava教程
+4. unsubscribe有啥用好像还没明白
+5.   java.lang.ClassCastException: java.lang.Integer cannot be cast to android.graphics.drawable.Drawable 
+`android:background="@{familyMember.isAdmin ? @drawable/shape_corners_gray : context.getColor(@color/white) }"`,这样写databinding就会报上面这个错
+6. [The fragments onResume() or onPause() will be called only when the Activities onResume() or onPause() is called. They are tightly coupled to the Activity.](https://stackoverflow.com/questions/11326155/fragment-onresume-onpause-is-not-called-on-backstack)
+7. onHiddenChanged
+8. adapterposition , adapter items , 
+9. itemtouchhelper 出问题是不是出在onmove的返回值里面
+10. [edittext textchange](https://stackoverflow.com/questions/20278382/differences-between-textwatcher-s-ontextchanged-beforetextchanged-and-aftertex)
+11.  @SuppressLint("RestrictedApi") 啥意思
+12. Rxjava 的 interval 在特定条件下会失效， `CountDownLatch` 关键字 ，·if this is missing then the JVM exits immediately and the new thread is stopped.
+    }·好像是因为 interval在的 的线程不能立刻退出 ,[interval失效](https://blog.csdn.net/jdsjlzx/article/details/52860632)
+13. onRequestPermissionsResult 在fragment中好像无效
+14. fragmentdialog 和 一般dialog 区别[](https://www.zhihu.com/question/23493914)
+15. apt 问题
+16. databind 和 circleimg 一起用的时候，databinding inflate出错 `android.view.InflateException: Binary XML file line #72: Binary XML file line #72: Error inflating class de.hdodenhof.circleimageview.CircleImageView
+                                                   Caused by: android.view.InflateException: Binary XML file line #72: Error inflating class de.hdodenhof.circleimageview.CircleImageView
+                                                   Caused by: java.lang.reflect.InvocationTargetException`
+
+17 .android:windowBackground 导致app闪退
+18. glide缓存（同一个url，服务器内容替换了，glide还是不会加载服务器的新图片，而是从本地加载已经缓存的图片）
+
+---project
+1. roomlist 在生成style时，如果list顺序被改变了，的同步问题未处理
+2. 场景设备操作中，窗帘开关要不要加进去
+3. 场景编辑
+4. http统一错误处理
+5. 调光灯的场景到底开关和调光值到底如何处理
+6. json结构，窗帘二没有停止groupaddress
+7. 神奇在三星手机上，切换到首页时，其他的fragment的destory没有掉用，而是只调用到了onDestroyView，但是如果backpress的话，destory则又会调用
+8. 音乐的json的问题会导致在选择设备时，音乐的开关操作主地址id设置不上去
+9. 
+
+-- 
+已完成接口
+1. 短信登录
+2. 账号密码登录 
+3. 令牌登录 x 
+
+1. 获取个人信息
+2. 修改个人信息 x
+
+1. 获取家庭列表
+2. 修改家庭名称 
+3. 切换家庭 
+
+1. 获取家庭成员
+2. 添加家庭成员
+3. 移除家庭成员
+
+
+1. 获取区域列表
+2. 修改区域拍戏和昵称
+
+1. 获取家庭设备列表
+2. 获取区域设备列表 x 有上面的这个已经亦需要了
+
+
+1. 获取常用设备列表/场景列表 
+2. 批量添加常用设备列表、
+3. 删除常用设备
+4. 修改常用设备排序
+
+1. 获取场景列表
+2. 添加场景
+3. 修改场景名称 x
+4. 删除场景
+
+1. 获取场景设备列表
+2. 批量添加场景设备
+3. 删除场景设备 x
+
+1. 添加场景设备操作
+2. 修改场景设备操作 x
+
+1. 获取定时触发条件
+2. 批量添加定时触发条件
+3. 修改定时触发条件 x 
+4. 删除定时触发条件 x
+
+获取登录短信
+获取添加家庭成员短信
+
+收信箱服务 x
+操作日志 x
+售后 x
+app反馈 x
+app升级 x
+权限 x
+设备定时服务 x
+数据上报服务 x
+3. 修改定时触发条件 x 
+4. 删除定时触发条件 x
+2. 修改场景设备操作 x
+3. 修改场景名称 x
+1. 能耗服务 x
+1. 网关服务 x
+
+1. 天气服务 x、
+2. 修改个人信息 x
+
+
+
+    {
+      "amount": 3.2, 
+      "day": "yyyy-MM-dd", 
+      "deviceId": 1, 
+      "familyId": 2, 
+      "month": "yyyy-MM", 
+      "quarter": "2018年第1季度" 
+    }
+ 
