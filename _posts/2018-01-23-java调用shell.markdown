@@ -10,4 +10,6 @@ tags:
     - shell
     - sqlite
 ---
-# [java调用shell命令](https://yq.aliyun.com/articles/2362)
+# java调用shell命令
+
+[链接](https://yq.aliyun.com/articles/2362)

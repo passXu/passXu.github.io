@@ -6,8 +6,8 @@ categories: android handler reference
 catalog:    true
 excerpt: android handler虚引用与内存溢出
 tags:
-    - jvm
-    - 内存管理
+    - hanler
+    - 内部类
 ---
 # android handler虚引用与内存溢出
 
@@ -21,6 +21,4 @@ tags:
 
 1. removeCallbacksAndMessages(null)
 
-![handler](https://developer.android.com/reference/android/os/Handler.html)
-
-## handler提供的方法供我们管理message以及callback、
+[handler](https://developer.android.com/reference/android/os/Handler.html)
