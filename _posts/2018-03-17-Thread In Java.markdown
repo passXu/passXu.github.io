@@ -23,3 +23,10 @@ tags:
 
 java虚拟机规范希望定义一个种，使java程序能屏蔽平台硬件和系统带来了内存访问差异，`使得在任何平台上，java程序都能有一致的内存访问效果`
 
+## [Object的wait和notify方法](http://turbosky.iteye.com/blog/2314144)
+
+## thread join
+
+## [线程中断](http://www.infoq.com/cn/articles/java-interrupt-mechanism)
+
+对于线程sleep，等常见throw中断的类，将中断throw后，会自动把中断重置为false

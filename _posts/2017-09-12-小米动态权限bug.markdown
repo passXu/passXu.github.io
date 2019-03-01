@@ -13,6 +13,6 @@ tags:
 
 在小米的应用信息页面，授权了定位知乎，进app，checkpermission返回true，但还是无法获得权限，并且提示`无权限之类`。
 
-![](https://github.com/yanzhenjie/AndPermission/issues/31)
+[issue](https://github.com/yanzhenjie/AndPermission/issues/31)
 
-![](https://github.com/yanzhenjie/AndPermission/issues/44)
+[issue](https://github.com/yanzhenjie/AndPermission/issues/44)
