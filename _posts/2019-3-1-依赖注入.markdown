@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "依赖注入"
+date:   2019-3-1 14:55:46 +0800
+categories: 
+catalog:    true
+excerp: 
+tags:
+    - 依赖注入
+    - dagger
+---
+# 依赖注入
+
+依赖注入解决了什么问题，就只是解耦么？实际在项目中的效果有文章里说的那么神奇么。
+
+有向无环图是什么东西
+
+mock test
+mock server
+
+## 为什么需要依赖注入
+
+[来自知乎](https://zhuanlan.zhihu.com/p/29426019)
+[来自知乎](https://www.zhihu.com/question/32108444/answer/309208647)
+- 降低耦合性，方便测试（给的例子一般是，测试的模块依赖了别的模块A，但是A模块此时因为种种原因不能用，然后如果不将对A的创建放到待测试模块中，而是用依赖注入的方式，就可以解决问题）
+- 如果一个对象需求可能经常修改，而修改会对其他的模块有影响，采用依赖注入的话，方便修改，而不影响使用被依赖的模块
+
+[来自知乎](https://www.zhihu.com/question/27053548/answer/595191356)
+- `为什么需要依赖注入，ans：先看下设计模式里关于“为什么factory很重要”？`
+
+### 工厂模式
+
+[掘金：工厂模式——看这一篇就够了](https://juejin.im/entry/58f5e080b123db2fa2b3c4c6)
+
+网上给的用来说明依赖注入好处的例子，都是A依赖B，需求变了之后（比如B要替换成C），需要在A中将B修改为C，但是用了依赖注入，就不用修改了。将C注入到A中就可以，（前提是B C是一类）
+
+依赖注入在代码层面的改变就是
+写代码的时候，不需要自己写 new XXX ，关于去掉这句话后带来的好处就是依赖注入的好处，这个好处就是工厂模式的好处，
+
+`《head frist设计模式》`
+
+大概看了一下，工厂模式的好处就是封装变化，对接口编程。
+
+## dagger教程
+
+[轻松学，听说你还没有搞懂 Dagger2](https://blog.csdn.net/briblue/article/details/75578459)
+[神兵利器Dagger2](https://zhuanlan.zhihu.com/p/24454466)
+
+## 使用dagger遇到的问题
+
+C:\xwj\android\workspace\TestMutiModule\app\build\generated\source\apt\debug\com\passxu\testmutimodule\dagger\DaggerinterfaceA.java:3: 错误: 程序包javax.annotation不存在
+import javax.annotation.Generated;
+
+inject 对于有参数的构造函数怎么处理。
+
+dagger的使用没具体看，估计主要是关于，各种注入的姿势。

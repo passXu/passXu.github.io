@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "测试"
+date:   2019-3-1 14:55:46 +0800
+categories: 
+catalog:    true
+excerp: 
+tags:
+    - mock
+---
+
+# 测试
+
+## mock测试
+
+- [维基百科](https://zh.wikipedia.org/wiki/%E6%A8%A1%E6%8B%9F%E5%AF%B9%E8%B1%A1)
+
+- mock测试就是在测试过程中，对于某些不容易构造或者不容易获取的对象，用一个虚拟的对象来创建以便测试的测试方法。
+
+- 在面向对象程序设计中，模拟对象（英语：mock object，也译作模仿对象）是以可控的方式模拟真实对象行为的假的对象。程序员通常创造模拟对象来测试其他对象的行为，很类似汽车设计者使用碰撞测试假人来模拟车辆碰撞中人的动态行为。
+
+- 相关：mock server（比如easy-mock）
