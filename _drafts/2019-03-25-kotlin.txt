@@ -1,0 +1,123 @@
+---
+layout: post
+title:  "kotlin"
+date:   2019-03-15 10:10 +0800
+categories: android kotlin
+catalog: true
+excerpt:
+tags:
+    - android
+    - kotlin
+---
+
+# kotlin
+
+## kotlin android 扩展
+
+1. view binding ，代码中的view对象名，是不是和xml中的id一样
+- 导入合成属性应该就是实现viewbind的配置，有两个层级，xml层级，和xml 节点层级，节点层级可以使用节点属性，
+
+2. Experimental Mode (实验模式？)
+- LayoutContainer Support ，container 是个什么概念
+- view cache
+- parcel
+
+## android kotlin 框架支持
+
+1. dagger
+2. butterknife
+等
+
+## java kotlin 无缝互相调用
+
+## 协程
+
+launch
+async（返回一个deferedref）
+
+runBlocking{} 它启动了一个协程并等待直到它结束，
+
+delay  await 挂起函数只被允许在协程或另一个挂起函数中调用，可以理解为suspend 函数只允许在协程或者另一个可挂起函数中调用
+
+协程运行在一个默认线程池中，
+
+协程的最大优点是它们可以 挂起 而不会阻塞一个线程
+ 
+teamcity 是什么东西
+
+## 其他
+
+kotlin没有句尾分号，怎么表示一句话结束呢，换行么
+
+## 基本语法
+
+var 和 val ，
+
+字符串模板 ${} 优先使用字符串模板，不优先使用+
+
+可空值，和空值检测
+if not null
+if not null and else 
+if null
+
+is 和自动类型转换
+
+while 循环，
+listOf
+
+when 表达式，怎么感觉像switch表达式
+
+使用in ，表达 range 区间，还有 step downTo 
+
+lambda表达式，filter 和 map。还有更多高阶lambda表达式
+
+创建类，不需要new 关键字
+
+延迟属性 lazy
+
+扩展函数
+
+去除集合第一个feinull fristornull
+
+数字字面值 下划线，
+
+也有== 和 ===
+
+基本数据类型的转换，有部分算数运算符会自动进行转换，比如+ ，- 有的不会进行转换，比如 == ， int 5 == long 5 ，为false
+
+位运算符没有特殊字符，
+
+浮点数比较
+
+char 不能当数字使用
+
+~~~kotlin
+class Array<T> private constructor() {
+    val size: Int
+    operator fun get(index: Int): T
+    operator fun set(index: Int, value: T): Unit
+
+    operator fun iterator(): Iterator<T>
+    // ……
+}
+~~~
+
+无符号整形，实验性的属性，是不是上面的config中的 配置实验为 true
+
+导入，默认导入，导入重命名
+
+局部返回，和非局部返回
+
+init 代码块
+主构造函数中不能有任何代码？
+
+
+jetpack  
+workmanager 像一个任务队列？
+导航 好像专门用来处理。分享跳转？
+分页 支持rxjava room livadata
+切片
+android ktx 
+jetpack mvvm 应该是 livedata viewmodel 和 databinding组成 lifecycle 
+
+[https://blog.csdn.net/mq2553299/article/details/79029657](争取达到jetpack最好的教程)
